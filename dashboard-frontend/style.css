@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9f9f9;
+}
+
+h1 {
+  color: #333;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+table, th, td {
+  border: 1px solid #aaa;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+#statsContainer {
+  display: flex;
+  gap: 20px;
+}
+.statBox {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
