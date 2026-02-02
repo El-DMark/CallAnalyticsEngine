@@ -15,13 +15,13 @@ const db = mysql.createPool({
   database: "u599556397_call_log_app"//process.env.DB_NAME
 });
 
-// Sample endpoint: Get all users
+// Get all users
 app.get('/api/users', async (req, res) => {
   const [rows] = await db.query('SELECT u.*, d.device_id FROM users u Left JOIN devices d ON u.user_id = d.user_id');
   res.json(rows);
 });
 
-// Sample endpoint: Get call stats per user
+// Get call stats per user
 app.get('/api/stats/users', async (req, res) => {
   const [rows] = await db.query(`
     SELECT u.employee_id, u.full_name,d.device_id, COUNT(c.call_id) AS total_calls, SUM(c.duration) AS total_duration
