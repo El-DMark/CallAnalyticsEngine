@@ -3,7 +3,7 @@ const express = require('express');
 const mysql = require('mysql2/promise');
 const cors = require('cors');
 require('dotenv').config();
-
+const path = require('path');
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -14,6 +14,14 @@ const db = mysql.createPool({
   password: "Sapital@123",//process.env.DB_PASSWORD
   database: "u599556397_call_log_app"//process.env.DB_NAME
 });
+
+app.use(express.static(__dirname));
+
+// Route for homepage
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dashboard-frontend/index.html'));
+});
+
 
 // Get all users
 app.get('/api/users', async (req, res) => {
